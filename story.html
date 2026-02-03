@@ -7,104 +7,371 @@
 
   <!-- beautiful fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
-</head>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://unpkg.com/@studio-freight/lenis"></script>
+  <!-- small inline styles for the featured frame + like buttons -->
+  <style>
+    .feature {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .feature-frame {
+      width: 320px;
+      background: #fff;
+      padding: 16px 16px 24px;
+      border-radius: 14px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+      transform: rotate(var(--rot, -2deg));
+      position: relative;
+    }
+
+    .feature-frame img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .feature-frame::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-6deg);
+      width: 70px;
+      height: 22px;
+      background: linear-gradient(90deg, #ffd6d6 0%, #ffecec 100%);
+      border-radius: 4px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      z-index: 4;
+    }
+
+    .feature-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      margin-top: 10px;
+      color: #b41f3a;
+    }
+
+    .feature-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background: rgba(255,255,255,0.6);
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .mid-message {
+      padding: 36px 20px;
+      text-align: center;
+    }
+
+    .mid-message p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #7a1f36;
+      margin: 0;
+    }
+
+    /* merged media grid */
+    .media-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      padding: 28px 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 220px;
+      background: #fff;
+      padding: 12px 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      transform: rotate(var(--rot, 0deg));
+      transition: transform 300ms ease, box-shadow 300ms ease;
+      overflow: visible;
+    }
+
+    .photo-frame img,
+    .photo-frame video {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      background: #f3f3f3;
+    }
+
+    .photo-frame figcaption {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    /* like button inside frames */
+    .like-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      z-index: 10;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b41f3a;
+    }
+    .like-btn.liked { background: #ffe9eb; color: #ff2b55; }
+
+    .inline-note {
+      width: 100%;
+      max-width: 760px;
+      margin: 12px auto;
+      padding: 14px 18px;
+      background: rgba(255,246,246,0.8);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      font-family: 'Playfair Display', serif;
+      color: #7a1f36;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .media-grid { gap: 12px; padding: 18px 10px; }
+      .photo-frame { width: calc(100% - 24px); }
+      .feature-frame { width: calc(100% - 40px); }
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis"></script>
+</head>
 
 <body>
     
-
   <!-- HERO SECTION -->
   <section class="hero section">
     <h1>My Birthday Girl<br><span>Fatimi ❤️</span></h1>
     <p>this little world is just for you</p>
 
     <section class="section music-switch">
-  <div class="music-content">
-    <p>i got you another song… just for this part 🎵</p>
-    <button id="playSecondSong">play now</button>
-    <audio id="secondAudio" src="second_song.mp3"></audio>
-  </div>
-</section>
+      <div class="music-content">
+        <p>i got you another song… just for this part 🎵</p>
+        <button id="playSecondSong">play now</button>
+        <audio id="secondAudio" src="second_song.mp3"></audio>
+      </div>
+    </section>
 
-    <div class="scroll-hint">
-      scroll slowly ↓
-    </div>
+    <div class="scroll-hint">scroll slowly ↓</div>
     <div class="floating-heart">❤️</div>
-
   </section>
 
+  <!-- FEATURED PORTRAIT (title picture) -->
+  <section class="feature section">
+    <figure class="feature-frame" style="--rot:-3deg">
+      <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="featured memory">
+      <figcaption class="feature-caption">my favorite — you</figcaption>
+    </figure>
 
-<section class="section memory">
-  <div class="memory-content">
-    <div class="image-box">
-      <span>her picture goes here</span>
+    <div class="feature-text">
+      <p><em>placeholder:</em> this is the special photo — a moment that means everything. replace this with your short note or a sweet micro-story about this picture. keep it short and heartfelt so it reads beautifully while she scrolls.</p>
     </div>
+  </section>
 
-    <div class="text-box">
-      <p class="quote">
-        “some people arrive quietly and suddenly become everything.”
-      </p>
-      <p class="caption">
-        this was the moment i didn’t know my life was changing
-      </p>
+  <!-- MERGED REELS + PHOTO GRID -->
+  <section class="reels-section section">
+    <h2>little moments i love 💖</h2>
+
+    <div class="media-grid">
+      <!-- 1 --> 
+      <figure class="photo-frame" style="--rot:-6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 1" loading="lazy">
+        <figcaption>Our goofy day</figcaption>
+      </figure>
+
+      <!-- 2 -->
+      <figure class="photo-frame" style="--rot:6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>Replay this clip</figcaption>
+      </figure>
+
+      <!-- 3 -->
+      <figure class="photo-frame" style="--rot:-4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 3" loading="lazy">
+        <figcaption>Sweet smile</figcaption>
+      </figure>
+
+      <!-- inline note after first group -->
+      <div class="inline-note">a little pause — breathe in this memory ✨</div>
+
+      <!-- 4 -->
+      <figure class="photo-frame" style="--rot:5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>little reel</figcaption>
+      </figure>
+
+      <!-- 5 -->
+      <figure class="photo-frame" style="--rot:-7deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 5" loading="lazy">
+        <figcaption>remember this?</figcaption>
+      </figure>
+
+      <!-- 6 -->
+      <figure class="photo-frame" style="--rot:4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>tiny moment</figcaption>
+      </figure>
+
+      <!-- 7 -->
+      <figure class="photo-frame" style="--rot:-3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 7" loading="lazy">
+        <figcaption>polaroid vibe</figcaption>
+      </figure>
+
+      <!-- 8 -->
+      <figure class="photo-frame" style="--rot:7deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>looping memory</figcaption>
+      </figure>
+
+      <!-- inline note after second group -->
+      <div class="inline-note">ps — i kept a few surprises for later 💌</div>
+
+      <!-- continue to 10 photos and total 8 reels -->
+      <!-- 9 -->
+      <figure class="photo-frame" style="--rot:-5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 9" loading="lazy">
+        <figcaption>sunny day</figcaption>
+      </figure>
+
+      <!-- 10 -->
+      <figure class="photo-frame" style="--rot:3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>reel again</figcaption>
+      </figure>
+
+      <!-- 11 -->
+      <figure class="photo-frame" style="--rot:-2deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 11" loading="lazy">
+        <figcaption>late night</figcaption>
+      </figure>
+
+      <!-- 12 -->
+      <figure class="photo-frame" style="--rot:6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>little loop</figcaption>
+      </figure>
+
+      <!-- 13 -->
+      <figure class="photo-frame" style="--rot:-4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 13" loading="lazy">
+        <figcaption>remember when?</figcaption>
+      </figure>
+
+      <!-- 14 -->
+      <figure class="photo-frame" style="--rot:5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>sweet clip</figcaption>
+      </figure>
+
+      <!-- 15 -->
+      <figure class="photo-frame" style="--rot:-6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 15" loading="lazy">
+        <figcaption>cozy</figcaption>
+      </figure>
+
+      <!-- 16 -->
+      <figure class="photo-frame" style="--rot:4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>tiny reel</figcaption>
+      </figure>
+
+      <!-- 17 -->
+      <figure class="photo-frame" style="--rot:-3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 17" loading="lazy">
+        <figcaption>smile</figcaption>
+      </figure>
+
+      <!-- 18 -->
+      <figure class="photo-frame" style="--rot:7deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
+          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        </video>
+        <figcaption>final loop</figcaption>
+      </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="reels-section">
-  <h2>little moments i love 💖</h2>
+  <!-- MID PAGE MESSAGE (space after some reels for a surprise note) -->
+  <section class="mid-message">
+    <p>ps — every tiny thing about you is my favorite.</p>
+  </section>
 
-  <div class="reels-container">
-    <video
-      class="reel"
-      src="assets/reels/reel1.mp4"
-      muted
-      loop
-      playsinline
-    ></video>
-
-  
-  </div>
-</section>
-
-
-<section class="section letter">
-  <div class="letter-content">
-    <p class="line">
-      i don’t think you realize this…
-    </p>
-
-    <p class="line">
-      but you changed the way i look at everything.
-    </p>
-
-    <p class="line">
-      the little things. the quiet moments.
-    </p>
-
-    <p class="line">
-      somehow… you made them all feel important.
-    </p>
-  </div>
-</section>
-
-<section class="photo-grid">
-  <figure class="photo-frame" style="--rot:-6deg">
-    <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="memory 1" loading="lazy">
-    <figcaption>Our goofy day — replace this caption</figcaption>
-  </figure>
-
-  <figure class="photo-frame" style="--rot:8deg">
-    <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-      <source src="assets/reels/reel1.mp4" type="video/mp4">
-    </video>
-    <figcaption>Short loop — replay the memory</figcaption>
-  </figure>
-</section>
+  <!-- LETTER SECTION -->
+  <section class="section letter">
+    <div class="letter-content">
+      <p class="line">i don’t think you realize this…</p>
+      <p class="line">but you changed the way i look at everything.</p>
+      <p class="line">the little things. the quiet moments.</p>
+      <p class="line">somehow… you made them all feel important.</p>
+    </div>
+  </section>
 
   <!-- PLACEHOLDER SECTIONS (we will fill later) -->
   <section class="section placeholder">
@@ -116,15 +383,12 @@
   </section>
 
   <!-- decorative balloons -->
-    <div class="balloon" style="--i:1;">🎈</div>
-<div class="balloon" style="--i:2;">🎉</div>
-<div class="balloon" style="--i:3;">🥳</div>
-<div class="balloon" style="--i:4;">🎈</div>
-<div class="balloon" style="--i:5;">✨</div>
+  <div class="balloon" style="--i:1;">🎈</div>
+  <div class="balloon" style="--i:2;">🎉</div>
+  <div class="balloon" style="--i:3;">🥳</div>
+  <div class="balloon" style="--i:4;">🎈</div>
+  <div class="balloon" style="--i:5;">✨</div>
 
   <script src="script.js"></script>
-
- 
-
 </body>
 </html>
