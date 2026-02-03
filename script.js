@@ -274,7 +274,7 @@ const imgObserver = new IntersectionObserver((entries) => {
       imgObserver.unobserve(img);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: '200px 0px' });
 
 document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
 
