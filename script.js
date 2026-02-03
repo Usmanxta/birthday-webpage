@@ -78,7 +78,7 @@ function detectBlow() {
   const volume =
     dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
 
-  if (volume > 40) {
+  if (volume > 90) {
     candleOff();
     return;
   }
