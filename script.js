@@ -37,6 +37,21 @@ if (radios.length && startBtn && responseText) {
   });
 }
 
+// Observe the final placeholder section and trigger meeting when it scrolls into view
+const finalNoteEl = document.getElementById('finalNote');
+if (finalNoteEl) {
+  const finalObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !haveMet) {
+        triggerMeeting();
+        finalObserver.unobserve(finalNoteEl);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  finalObserver.observe(finalNoteEl);
+}
+
 // -----------------------
 // START BUTTON → CAKE + MUSIC
 // -----------------------
