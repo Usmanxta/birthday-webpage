@@ -37,20 +37,7 @@ if (radios.length && startBtn && responseText) {
   });
 }
 
-// Observe the final placeholder section and trigger meeting when it scrolls into view
-const finalNoteEl = document.getElementById('finalNote');
-if (finalNoteEl) {
-  const finalObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !haveMet) {
-        triggerMeeting();
-        finalObserver.unobserve(finalNoteEl);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  finalObserver.observe(finalNoteEl);
-}
+// (observer for final placeholder removed — reverted to original scroll-only trigger)
 
 // -----------------------
 // START BUTTON → CAKE + MUSIC
@@ -582,7 +569,6 @@ function handleAvatarsOnScroll() {
   // When very near bottom, trigger meeting once
   if (!haveMet && progress >= 0.96) {
     triggerMeeting();
-  }
   }
 }
 
