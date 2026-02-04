@@ -86,10 +86,10 @@
     .media-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
       justify-content: center;
-      padding: 28px 14px;
-      max-width: 980px;
+      padding: 40px 14px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -148,14 +148,30 @@
     .inline-note {
       width: 100%;
       max-width: 760px;
-      margin: 12px auto;
-      padding: 14px 18px;
-      background: rgba(255,246,246,0.8);
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      margin: 28px auto 32px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 192, 203, 0.1));
+      border: 1px solid rgba(255, 105, 157, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06), inset 0 1px 2px rgba(255,255,255,0.5);
       font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
       color: #7a1f36;
       text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      animation: slideInNote 0.6s ease-out;
+    }
+
+    @keyframes slideInNote {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
@@ -174,11 +190,11 @@
   <!-- HERO SECTION -->
   <section class="hero section">
     <h1>My Birthday Girl<br><span>Fatimi ❤️</span></h1>
-    <p>this little world is just for you</p>
+    <p>this little world is made for you, with love</p>
 
     <section class="section music-switch">
       <div class="music-content">
-        <p>i got you another song… just for this part 🎵</p>
+        <p>I have got a song… just for this part 🎵</p>
         <button id="playSecondSong">play now</button>
         <audio id="secondAudio" src="second_song.mp3"></audio>
       </div>
@@ -196,7 +212,8 @@
     </figure>
 
     <div class="feature-text">
-      <p><em>placeholder:</em> this is the special photo — a moment that means everything. replace this with your short note or a sweet micro-story about this picture. keep it short and heartfelt so it reads beautifully while she scrolls.</p>
+      <p><em>Note:</em> Choosing one single favorite photo is difficult but if i have to chose one it will be this one
+        because i will always be running after your warm while you look back at me... and i love it.</p>
     </div>
   </section>
 
@@ -208,186 +225,297 @@
       <!-- 1 --> 
       <figure class="photo-frame" style="--rot:-6deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 1" loading="lazy">
-        <figcaption>Our goofy day</figcaption>
+        <img src="assets/pics/IMG_1900.JPG" data-src="assets/pics/IMG_1900.JPG" alt="photo 1" loading="lazy">
+        <figcaption>this is a small gift to you from silly me</figcaption>
       </figure>
 
       <!-- 2 -->
       <figure class="photo-frame" style="--rot:6deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1900.JPG">
+          <source src="assets/reels/Btjo0666.mp4" type="video/mp4">
         </video>
-        <figcaption>Replay this clip</figcaption>
+        <figcaption>your laugh is my favorite sound 🎵</figcaption>
       </figure>
 
       <!-- 3 -->
       <figure class="photo-frame" style="--rot:-4deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 3" loading="lazy">
-        <figcaption>Sweet smile</figcaption>
+        <img src="assets/pics/IMG_1953.JPG" data-src="assets/pics/IMG_1953.JPG" alt="photo 3" loading="lazy">
+        <figcaption>stay the way you are</figcaption>
       </figure>
 
-      <!-- inline note after first group -->
-      <div class="inline-note">a little pause — breathe in this memory ✨</div>
+      <!-- note -->
+      <div class="inline-note"> keep smiling for me! </div>
 
       <!-- 4 -->
       <figure class="photo-frame" style="--rot:5deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1955.JPG">
+          <source src="assets/reels/Deri8206.mp4" type="video/mp4">
         </video>
-        <figcaption>little reel</figcaption>
+        <figcaption>cutieee!</figcaption>
       </figure>
 
       <!-- 5 -->
       <figure class="photo-frame" style="--rot:-7deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 5" loading="lazy">
-        <figcaption>remember this?</figcaption>
+        <img src="assets/pics/IMG_1955.JPG" data-src="assets/pics/IMG_1955.JPG" alt="photo 5" loading="lazy">
+        <figcaption>your eyes tell a thousand stories</figcaption>
       </figure>
 
       <!-- 6 -->
       <figure class="photo-frame" style="--rot:4deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1958.JPG">
+          <source src="assets/reels/Fjyq6134.mp4" type="video/mp4">
         </video>
-        <figcaption>tiny moment</figcaption>
+        <figcaption> will you cook for me too?</figcaption>
       </figure>
 
       <!-- 7 -->
       <figure class="photo-frame" style="--rot:-3deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 7" loading="lazy">
-        <figcaption>polaroid vibe</figcaption>
+        <img src="assets/pics/IMG_1958.JPG" data-src="assets/pics/IMG_1958.JPG" alt="photo 7" loading="lazy">
+        <figcaption>love the way you have carried yourself</figcaption>
       </figure>
 
       <!-- 8 -->
       <figure class="photo-frame" style="--rot:7deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1990.JPG">
+          <source src="assets/reels/Joas6982.mp4" type="video/mp4">
         </video>
-        <figcaption>looping memory</figcaption>
+        <figcaption>these silly moments lives with me</figcaption>
       </figure>
 
-      <!-- inline note after second group -->
-      <div class="inline-note">ps — i kept a few surprises for later 💌</div>
+      <!-- note -->
+      <div class="inline-note">💌 sorry for every tear you shed 💌</div>
 
-      <!-- continue to 10 photos and total 8 reels -->
-      <!-- 9 -->
-      <figure class="photo-frame" style="--rot:-5deg">
-        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 9" loading="lazy">
-        <figcaption>sunny day</figcaption>
-      </figure>
-
+      
       <!-- 10 -->
       <figure class="photo-frame" style="--rot:3deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1995.JPG">
+          <source src="assets/reels/Lfzj9370.mp4" type="video/mp4">
         </video>
-        <figcaption>reel again</figcaption>
+        <figcaption>that pimple sure is lucky</figcaption>
       </figure>
 
       <!-- 11 -->
       <figure class="photo-frame" style="--rot:-2deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 11" loading="lazy">
-        <figcaption>late night</figcaption>
+        <img src="assets/pics/IMG_1995.JPG" data-src="assets/pics/IMG_1995.JPG" alt="photo 11" loading="lazy">
+        <figcaption>sorry in advance for this year</figcaption>
       </figure>
 
       <!-- 12 -->
       <figure class="photo-frame" style="--rot:6deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1996.JPG">
+          <source src="assets/reels/Mabp2477.mp4" type="video/mp4">
         </video>
-        <figcaption>little loop</figcaption>
+        <figcaption>bless me with that kiss</figcaption>
       </figure>
 
       <!-- 13 -->
       <figure class="photo-frame" style="--rot:-4deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 13" loading="lazy">
-        <figcaption>remember when?</figcaption>
+        <img src="assets/pics/IMG_1996.JPG" data-src="assets/pics/IMG_1996.JPG" alt="photo 13" loading="lazy">
+        <figcaption>moments like these</figcaption>
       </figure>
+
+      <!-- note -->
+      <div class="inline-note">🌟always prayed for your success 🌟</div>
 
       <!-- 14 -->
       <figure class="photo-frame" style="--rot:5deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_1999.JPG">
+          <source src="assets/reels/Nbac2288.mp4" type="video/mp4">
         </video>
-        <figcaption>sweet clip</figcaption>
+        <figcaption>my little duck</figcaption>
       </figure>
 
       <!-- 15 -->
       <figure class="photo-frame" style="--rot:-6deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 15" loading="lazy">
-        <figcaption>cozy</figcaption>
+        <img src="assets/pics/IMG_1999.JPG" data-src="assets/pics/IMG_1999.JPG" alt="photo 15" loading="lazy">
+        <figcaption>just a little longer</figcaption>
       </figure>
 
       <!-- 16 -->
       <figure class="photo-frame" style="--rot:4deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_2001.JPG">
+          <source src="assets/reels/Pmrc3140.mp4" type="video/mp4">
         </video>
-        <figcaption>tiny reel</figcaption>
+        <figcaption>ignore me</figcaption>
       </figure>
 
       <!-- 17 -->
       <figure class="photo-frame" style="--rot:-3deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <img src="assets/pics/pic1.jpg" data-src="assets/pics/pic1.jpg" alt="photo 17" loading="lazy">
-        <figcaption>smile</figcaption>
+        <img src="assets/pics/IMG_2001.JPG" data-src="assets/pics/IMG_2001.JPG" alt="photo 17" loading="lazy">
+        <figcaption>cant ignore you tho</figcaption>
       </figure>
 
       <!-- 18 -->
+      <figure class="photo-frame" style="--rot:6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_2004.JPG">
+          <source src="assets/reels/Ptkr3008.mp4" type="video/mp4">
+        </video>
+        <figcaption>"NO" is not an option anymore lol</figcaption>
+      </figure>
+
+      <!-- 19 -->
+      <figure class="photo-frame" style="--rot:-5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMG_2004.JPG" data-src="assets/pics/IMG_2004.JPG" alt="photo 19" loading="lazy">
+        <figcaption>happy birthday to my everything 💕</figcaption>
+      </figure>
+
+      <!-- 20 -->
+      <figure class="photo-frame" style="--rot:3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_2006.JPG">
+          <source src="assets/reels/Qxcg4382.mp4" type="video/mp4">
+        </video>
+        <figcaption>let's make more beautiful memories together</figcaption>
+      </figure>
+
+      <!-- 21 -->
+      <figure class="photo-frame" style="--rot:-2deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMG_2006.JPG" data-src="assets/pics/IMG_2006.JPG" alt="photo 21" loading="lazy">
+        <figcaption>pretty right?</figcaption>
+      </figure>
+
+      <!-- 22 -->
       <figure class="photo-frame" style="--rot:7deg">
         <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
-        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.jpg">
-          <source src="assets/reels/reel1.mp4" type="video/mp4">
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_2008.JPG">
+          <source src="assets/reels/Rfcg0584.mp4" type="video/mp4">
         </video>
-        <figcaption>final loop</figcaption>
+        <figcaption>so cute</figcaption>
+      </figure>
+
+      <!-- final note -->
+      <div class="inline-note">💖 happy birthday, fatima 💖</div>
+
+      <!-- 23 -->
+      <figure class="photo-frame" style="--rot:-4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMG_2008.JPG" data-src="assets/pics/IMG_2008.JPG" alt="photo 23" loading="lazy">
+        <figcaption>yh yh.. i have put some good pics as well :)</figcaption>
+      </figure>
+
+      <!-- 24 -->
+      <figure class="photo-frame" style="--rot:5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_2009.JPG">
+          <source src="assets/reels/Svyr6706.mp4" type="video/mp4">
+        </video>
+        <figcaption>on your day, celebrate how amazing you are</figcaption>
+      </figure>
+
+      <!-- 25 -->
+      <figure class="photo-frame" style="--rot:-6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMG_2009.JPG" data-src="assets/pics/IMG_2009.JPG" alt="photo 25" loading="lazy">
+        <figcaption>you deserve every happiness in the world</figcaption>
+      </figure>
+
+      <!-- 26 -->
+      <figure class="photo-frame" style="--rot:4deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMG_4451.JPG">
+          <source src="assets/reels/Upng9789.mp4" type="video/mp4">
+        </video>
+        <figcaption>thank you for making my life so colorful</figcaption>
+      </figure>
+
+      <!-- 27 -->
+      <figure class="photo-frame" style="--rot:-3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMG_4451.JPG" data-src="assets/pics/IMG_4451.JPG" alt="photo 27" loading="lazy">
+        <figcaption>okay idk why i added this</figcaption>
+      </figure>
+
+      <!-- 28 -->
+      <figure class="photo-frame" style="--rot:7deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/IMJA2634.JPG">
+          <source src="assets/reels/Wltd3931.mp4" type="video/mp4">
+        </video>
+        <figcaption>ma khkule janaan</figcaption>
+      </figure>
+
+      <!-- 29 -->
+      <figure class="photo-frame" style="--rot:-5deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/IMJA2634.JPG" data-src="assets/pics/IMJA2634.JPG" alt="photo 29" loading="lazy">
+        <figcaption>its your special day so why not</figcaption>
+      </figure>
+
+      <!-- 30 -->
+      <figure class="photo-frame" style="--rot:3deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/TQTF2444.JPG">
+          <source src="assets/reels/Xqjd0532.mp4" type="video/mp4">
+        </video>
+        <figcaption>and many more happy years together ✨</figcaption>
+      </figure>
+
+      <!-- 31 -->
+      <figure class="photo-frame" style="--rot:-2deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <img src="assets/pics/TQTF2444.JPG" data-src="assets/pics/TQTF2444.JPG" alt="photo 31" loading="lazy">
+        <figcaption>all my love, forever and always 💕</figcaption>
+      </figure>
+
+      <!-- one last video -->
+      <figure class="photo-frame" style="--rot:6deg">
+        <button class="like-btn" onclick="this.classList.toggle('liked'); this.textContent = this.classList.contains('liked') ? '♥' : '♡'">♡</button>
+        <video class="reel" data-autoplay muted loop playsinline preload="none" poster="assets/pics/pic1.JPG">
+          <source src="assets/reels/Yecc2852.mp4" type="video/mp4">
+        </video>
+        <figcaption>🎂 happy birthday, fatima! 🎂</figcaption>
       </figure>
     </div>
   </section>
 
   <!-- MID PAGE MESSAGE (space after some reels for a surprise note) -->
   <section class="mid-message">
-    <p>ps — every tiny thing about you is my favorite.</p>
-  </section>
-
-  <!-- LETTER SECTION -->
-  <section class="section letter">
-    <div class="letter-content">
-      <p class="line">i don’t think you realize this…</p>
-      <p class="line">but you changed the way i look at everything.</p>
-      <p class="line">the little things. the quiet moments.</p>
-      <p class="line">somehow… you made them all feel important.</p>
-    </div>
+    <p>Every day, every second brings me closer to you.</p>
   </section>
 
   <!-- PLACEHOLDER SECTIONS (we will fill later) -->
   <section class="section placeholder">
-    <p>something beautiful begins here…</p>
+    <p>keep it going like this for the rest of our time</p>
   </section>
 
   <section class="section placeholder">
-    <p>and it keeps getting better</p>
+    <p>Untill we become one forever! <br>
+     Thank you Fatima for everything that you have done for me<br>
+    you will always be that special person in my life</p>
   </section>
 
-  <!-- decorative balloons -->
-  <div class="balloon" style="--i:1;">🎈</div>
-  <div class="balloon" style="--i:2;">🎉</div>
-  <div class="balloon" style="--i:3;">🥳</div>
-  <div class="balloon" style="--i:4;">🎈</div>
-  <div class="balloon" style="--i:5;">✨</div>
+  <!-- decorative floating elements (enhanced) -->
+  <div class="floating-element" style="--i:1;"></div>
+  <div class="floating-element" style="--i:2;"></div>
+  <div class="floating-element" style="--i:3;"></div>
+  <div class="floating-element" style="--i:4;"></div>
+  <div class="floating-element" style="--i:5;"></div>
+
+  <!-- Avatar Companions -->
+  <div class="avatar-container avatar-left">
+    <img id="userAvatar" src="assets/stickers/uhappy.PNG" alt="User avatar" class="avatar-img">
+  </div>
+  <div class="avatar-container avatar-right">
+    <img id="girlfriendAvatar" src="assets/stickers/fhappy.PNG" alt="Girlfriend avatar" class="avatar-img">
+  </div>
 
   <script src="script.js"></script>
 </body>
