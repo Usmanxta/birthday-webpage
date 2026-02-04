@@ -617,7 +617,7 @@ function triggerMeeting() {
   // lock final positions roughly center bottom
   const vw = window.innerWidth;
   const aw = avatarLeftContainer ? avatarLeftContainer.offsetWidth || 120 : 120;
-  const gapBetween = vw <= 420 ? 24 : vw <= 768 ? 48 : 120; // pixels between avatars
+  const gapBetween = (vw <= 420 ? 24 : vw <= 768 ? 48 : 120) + 12; // pixels between avatars (+12px buffer)
 
   // compute left/right desired left coordinates
   const centerXLeft = (vw / 2) - aw - (gapBetween / 2);
