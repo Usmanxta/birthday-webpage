@@ -554,11 +554,11 @@ function handleAvatarsOnScroll() {
   // make avatars move closer on small screens: increase moveDistance proportionally
   let moveDistance;
   if (vw <= 420) {
-    // mobile narrow: move nearly to center (small gap)
-    moveDistance = Math.max(halfWidth - 40, 60);
+    // mobile narrow: move almost to center so avatars get very close
+    moveDistance = Math.max(halfWidth - 8, 80);
   } else if (vw <= 768) {
     // tablet: moderate approach
-    moveDistance = Math.max(halfWidth - 60, 80);
+    moveDistance = Math.max(halfWidth - 40, 90);
   } else {
     // desktop: keep some margin
     moveDistance = Math.max(halfWidth - margin - 60, 40);
@@ -582,9 +582,11 @@ function handleAvatarsOnScroll() {
     const gap = rightRect.left - leftRect.right;
 
     // if they are visually close enough, trigger meeting
-    if (gap < 80 || progress >= 0.98) {
+    const threshold = vw <= 420 ? 18 : vw <= 768 ? 40 : 80;
+    if (gap < threshold || progress >= 0.98) {
       triggerMeeting();
     }
+  }
   }
 }
 
